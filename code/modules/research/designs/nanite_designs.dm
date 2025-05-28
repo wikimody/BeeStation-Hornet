@@ -154,20 +154,40 @@
 	program_type = /datum/nanite_program/vampire
 	category = list("Utility Nanites")
 
+/datum/design/nanites/gas
+	name = "Molecular Synthesis"
+	desc = "The nanites cause molecules in the body to react, producing a gas of a specified type."
+	id = "gas_nanites"
+	program_type = /datum/nanite_program/gas
+	category = list("Utility Nanites")
+
+/datum/design/nanites/doorjack
+	name = "Doorjack"
+	desc = "The nanites emit a short-range NTnet signal, hijacking the security protocol for nearby airlocks and opening them."
+	id = "doorjack_nanites"
+	program_type = /datum/nanite_program/doorjack
+	category = list("Utility Nanites")
+
+/datum/design/nanites/jammer
+	name = "Signal Jammer"
+	desc = "The nanites emit high-frequency signals which jam nearby radio communications."
+	id = "jammer_nanites"
+	program_type = /datum/nanite_program/jammer
+	category = list("Utility Nanites")
+
+/datum/design/nanites/night_vision
+	name = "Night Vision"
+	desc = "The nanites grant the user with night vision."
+	id = "night_vision_nanites"
+	program_type = /datum/nanite_program/night_vision
+	category = list("Utility Nanites")
+
 ////////////////////MEDICAL NANITES//////////////////////////////////////
 /datum/design/nanites/regenerative
 	name = "Accelerated Regeneration"
 	desc = "The nanites boost the host's natural regeneration, increasing their healing speed."
 	id = "regenerative_nanites"
 	program_type = /datum/nanite_program/regenerative
-	category = list("Medical Nanites")
-
-/datum/design/nanites/regenerative_advanced
-	name = "Bio-Reconstruction"
-	desc = "The nanites manually repair and replace organic cells, acting much faster than normal regeneration. \
-			However, this program cannot detect the difference between harmed and unharmed, causing it to consume nanites even if it has no effect."
-	id = "regenerative_plus_nanites"
-	program_type = /datum/nanite_program/regenerative_advanced
 	category = list("Medical Nanites")
 
 /datum/design/nanites/temperature
@@ -213,11 +233,11 @@
 	program_type = /datum/nanite_program/blood_restoring
 	category = list("Medical Nanites")
 
-/datum/design/nanites/repairing
-	name = "Mechanical Repair"
-	desc = "The nanites fix damage in the host's mechanical limbs."
-	id = "repairing_nanites"
-	program_type = /datum/nanite_program/repairing
+/datum/design/nanites/cauterize
+	name = "Bleeding Cauterization"
+	desc = "The nanites create a flash of heat, cauterizing any wounds."
+	id = "cauterize_nanites"
+	program_type = /datum/nanite_program/cauterize
 	category = list("Medical Nanites")
 
 /datum/design/nanites/defib
@@ -227,6 +247,12 @@
 	program_type = /datum/nanite_program/defib
 	category = list("Medical Nanites")
 
+/datum/design/nanites/tomb
+	name = "Nanite Tomb"
+	desc = "The nanites replace dead-cells inside the body temporarilly preventing the host from succumbing to death."
+	id = "nanite_tomb"
+	program_type = /datum/nanite_program/nanite_tomb
+	category = list("Medical Nanites")
 
 ////////////////////AUGMENTATION NANITES//////////////////////////////////////
 
@@ -417,6 +443,20 @@
 	program_type = /datum/nanite_program/armblade
 	category = list("Weaponized Nanites")
 
+/datum/design/nanites/pressure_suit
+	name = "Pressure Suit"
+	desc = "The nanites form a rigid pressure barrier around the host, protecting them from low pressure environments."
+	id = "pressure_suit_nanites"
+	program_type = /datum/nanite_program/pressure_suit
+	category = list("Weaponized Nanites")
+
+/datum/design/nanites/crush_resistance
+	name = "Exo-skeleton"
+	desc = "The nanites form a tough exo-skeleton protecting the user from high pressure environments."
+	id = "crush_resistance_nanites"
+	program_type = /datum/nanite_program/crush_resistance
+	category = list("Weaponized Nanites")
+
 ////////////////////SUPPRESSION NANITES//////////////////////////////////////
 
 /datum/design/nanites/shock
@@ -582,6 +622,19 @@
 	program_type = /datum/nanite_program/sensor/receiver
 	category = list("Sensor Nanites")
 
+/datum/design/nanites/sensor_bleeding
+	name = "Bleeding Sensor"
+	desc = "The nanites receive a signal when the host is bleeding."
+	id = "sensor_bleed_nanites"
+	program_type = /datum/nanite_program/sensor/bleeding
+	category = list("Sensor Nanites")
+
+/datum/design/nanites/sensor_pressure
+	name = "Pressure Sensor"
+	desc = "The nanites receive a signal when the host's blood level is above/below a certain percentage."
+	id = "sensor_pressure_nanites"
+	program_type = /datum/nanite_program/sensor/pressure
+	category = list("Sensor Nanites")
 
 ////////////////////NANITE PROTOCOLS//////////////////////////////////////
 //Note about the category name: The UI cuts the last 8 characters from the category name to remove the " Nanites" in the other categories
@@ -614,11 +667,11 @@
 	program_type = /datum/nanite_program/protocol/offline
 	category = list("Protocols_Nanites")
 
-/datum/design/nanites/hive
-	name = "Hive Protocol"
-	desc = "Storage Protocol: the nanites use a more efficient grid arrangment for volume storage, increasing maximum volume in a host."
-	id = "hive_nanites"
-	program_type = /datum/nanite_program/protocol/hive
+/datum/design/nanites/silo
+	name = "Silo Protocol"
+	desc = "Replication Protocol: Produces an additional 5 nanites per second while the host has excess food in their body. Excess food is consumed even while nanites are at maximum capacity."
+	id = "silo_nanites"
+	program_type = /datum/nanite_program/protocol/silo
 	category = list("Protocols_Nanites")
 
 /datum/design/nanites/zip
@@ -642,11 +695,3 @@
 	id = "unsafe_storage_nanites"
 	program_type = /datum/nanite_program/protocol/unsafe_storage
 	category = list("Protocols_Nanites")
-	
-////////////////////NANITE CLASSIFIED//////////////////////////////////////
-/datum/design/nanites/mindshield
-	name = "Mental Barrier"
-	desc = "The nanites form a protective membrane around the host's brain, shielding them from abnormal influences while they're active."
-	id = "mindshield_nanites"
-	program_type = /datum/nanite_program/mindshield
-	category = list("Classified_Nanites")

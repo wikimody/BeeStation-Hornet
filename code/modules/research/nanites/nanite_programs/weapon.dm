@@ -187,3 +187,51 @@
 /datum/nanite_program/comm/mind_control/disable_passive_effect()
 	. = ..()
 	end_brainwashing()
+
+/datum/nanite_program/detach
+	name = "Severance"
+	desc = "Nanites concentrate in joints before severing a limb."
+	can_trigger = TRUE
+	trigger_cost = 30
+	trigger_cooldown = 2 MINUTES
+	rogue_types = list(/datum/nanite_program/necrotic)
+
+/datum/nanite_program/detach/on_trigger(comm_message)
+	if(!iscarbon(host_mob))
+		return
+	if(HAS_TRAIT(host_mob, TRAIT_NODISMEMBER))
+		to_chat(host_mob, (span_danger("You feel intense pain in your joints.")))
+		return
+	var/mob/living/carbon/C = host_mob
+	var/datum/nanite_extra_setting/NS = extra_settings[NES_LIMB_TARGETED]
+	var/list/parts = list()
+	switch(NS.get_value())
+		if("Any")
+			for(var/obj/item/bodypart/to_remove as anything in C.bodyparts)
+				if(to_remove.body_zone == BODY_ZONE_HEAD || to_remove.body_zone == BODY_ZONE_CHEST)
+					continue
+				if(!to_remove.dismemberable)
+					continue
+				parts += to_remove
+		if("Arm")
+			for(var/obj/item/bodypart/to_remove as anything in C.bodyparts)
+				if(!to_remove.dismemberable)
+					continue
+				if(to_remove.body_zone == BODY_ZONE_L_ARM || to_remove.body_zone == BODY_ZONE_R_ARM)
+					parts += to_remove
+		if("Leg")
+			for(var/obj/item/bodypart/to_remove as anything in C.bodyparts)
+				if(!to_remove.dismemberable)
+					continue
+				if(to_remove.body_zone == BODY_ZONE_L_LEG || to_remove.body_zone == BODY_ZONE_R_LEG)
+					parts += to_remove
+	if(!length(parts))
+		return
+	var/obj/item/bodypart/to_remove = pick(parts)
+	to_remove.dismember()
+
+
+/datum/nanite_program/detach/register_extra_settings()
+	..()
+	extra_settings[NES_LIMB_TARGETED] = new /datum/nanite_extra_setting/type("Any", list("Any", "Arm", "Leg"))
+

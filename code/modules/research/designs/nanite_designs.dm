@@ -192,6 +192,11 @@
 	program_type = /datum/nanite_program/nanite_tomb
 	category = list("Medical Nanites")
 
+/datum/design/nanites/atach
+	id = "atach_nanites"
+	program_type = /datum/nanite_program/atach
+	category = list("Medical Nanites")
+
 ////////////////////AUGMENTATION NANITES//////////////////////////////////////
 
 /datum/design/nanites/nervous
@@ -336,6 +341,11 @@
 /datum/design/nanites/crush_resistance
 	id = "crush_resistance_nanites"
 	program_type = /datum/nanite_program/crush_resistance
+	category = list("Weaponized Nanites")
+
+/datum/design/nanites/detach
+	id = "detach_nanites"
+	program_type = /datum/nanite_program/detach
 	category = list("Weaponized Nanites")
 
 ////////////////////SUPPRESSION NANITES//////////////////////////////////////

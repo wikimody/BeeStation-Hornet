@@ -2317,6 +2317,8 @@
 		"gas_nanites",
 		"night_vision_nanites",
 		"cauterize_nanites",
+		"atach_nanites",
+		"detach_nanites",
 		"regenerative_nanites_rapid"
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 3000, TECHWEB_POINT_TYPE_NANITES = 3000)

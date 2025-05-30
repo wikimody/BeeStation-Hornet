@@ -61,6 +61,7 @@
 #define NES_COOLDOWN_TIME "Cooldown Duration"
 #define NES_COOLDOWN_ID "Cooldown Activation Code"
 #define NES_STATUS_EFFECT "Active HUD"
+#define NES_LIMB_TARGETED "Targeted Limb"
 
 //Nanite Logic
 #define NL_AND "AND"

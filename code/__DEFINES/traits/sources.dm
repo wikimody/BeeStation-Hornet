@@ -152,3 +152,4 @@
 #define SOURCE_NANITE_CELLULAR "nanite_cellular"
 #define SOURCE_NANITE_PRESSURE "nanite_pressure"
 #define SOURCE_NANITE_NIGHT_VISION "nanite_night_vision"
+#define SOURCE_NANITE_ATACHMENT "nanite_atachment"

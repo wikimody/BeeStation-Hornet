@@ -276,3 +276,20 @@
 	REMOVE_TRAIT(host_mob, TRAIT_NOHARDCRIT, SOURCE_NANITE_TOMB)
 	REMOVE_TRAIT(host_mob, TRAIT_OVERRIDE_SKIN_COLOUR, SOURCE_NANITE_TOMB)
 
+/datum/nanite_program/atach
+	name = "Atachment Mesh"
+	desc = "The nanites concentraite cut off joints, alowing limbs to be easly atached"
+	use_rate = 0.3
+	rogue_types = list(/datum/nanite_program/necrotic)
+	maximum_duration = 30 SECONDS
+	trigger_cooldown = 120 SECONDS
+
+/datum/nanite_program/atach/enable_passive_effect()
+	. = ..()
+	if(!iscarbon(host_mob))
+		return
+	ADD_TRAIT(host_mob, TRAIT_LIMBATTACHMENT, SOURCE_NANITE_ATACHMENT)
+
+/datum/nanite_program/atach/disable_passive_effect()
+	. = ..()
+	REMOVE_TRAIT(host_mob, TRAIT_LIMBATTACHMENT, SOURCE_NANITE_ATACHMENT)

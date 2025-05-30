@@ -25,6 +25,7 @@
 ///Nanite Extra Settings - Note that these will also be the names displayed in the UI
 #define NES_SENT_CODE "Sent Code"
 #define NES_EVENT_CLEAR_CODE "Event Clear Code"
+#define NES_CODE_REPEAT "Repeat Code"
 #define NES_DELAY "Delay"
 #define NES_MODE "Mode"
 #define NES_COMM_CODE "Comm Code"
@@ -56,7 +57,6 @@
 #define NES_ACTIVATION_CODE "Sent Activation Code"
 #define NES_DEACTIVATION_CODE "Sent Deactivation Code"
 #define NES_PRESSURE "Pressure"
-#define NES_HEALING_MODE "Healing Mode"
 #define NES_GAS_RELEASED "Gas Produced"
 #define NES_COOLDOWN_TIME "Cooldown Duration"
 #define NES_COOLDOWN_ID "Cooldown Activation Code"

@@ -73,14 +73,12 @@
 /datum/nanite_program/protocol/pyramid/enable_passive_effect()
 	. = ..()
 	nanites.nutrition_rate += 0.2
+	nanites.regen_rate += boost
 
 /datum/nanite_program/protocol/pyramid/disable_passive_effect()
 	. = ..()
 	nanites.nutrition_rate -= 0.2
-
-/datum/nanite_program/protocol/pyramid/active_effect()
-	nanites.adjust_nanites(amount = boost)
-
+	nanites.regen_rate -= boost
 
 /datum/nanite_program/protocol/offline
 	name = "Eclipse Protocol"
@@ -95,8 +93,13 @@
 		return FALSE
 	return ..()
 
-/datum/nanite_program/protocol/offline/active_effect()
-	nanites.adjust_nanites(amount = boost)
+/datum/nanite_program/protocol/offline/enable_passive_effect()
+	. = ..()
+	nanites.regen_rate += boost
+
+/datum/nanite_program/protocol/offline/disable_passive_effect()
+	. = ..()
+	nanites.regen_rate -= boost
 
 
 /datum/nanite_program/protocol/silo
@@ -169,7 +172,7 @@
 
 /datum/nanite_program/protocol/unsafe_storage
 	name = "S.L.O. Protocol"
-	desc = "Cooldown Protocol: Overrides the standard storage mechanism for nanites, allowing them to operate without any cooldowns. However, the nanites\
+	desc = "Cooldown Protocol: Overrides the standard storage mechanism for nanites, allowing them to operate with significantly reduced cooldowns. However, the nanites\
 		will constantly replicate until either the body becomes oversaturated, or the host starves."
 	use_rate = 0
 	rogue_types = list(/datum/nanite_program/necrotic)
@@ -216,7 +219,7 @@
 	// entirely by the nanites themselves.
 	nanites.nutrition_rate += 0.1
 	nanites.max_production_ratio += 1000
-	nanites.cooldown_multiplier = 0
+	nanites.cooldown_multiplier *= 0.2
 	// Required to prevent exploitation where you enable it, activate an effect,
 	// then disable
 	nanites.set_volume(0)
@@ -225,7 +228,7 @@
 	. = ..()
 	nanites.nutrition_rate -= 0.1
 	nanites.max_production_ratio -= 1000
-	nanites.cooldown_multiplier = 1
+	nanites.cooldown_multiplier *= 5
 
 /datum/nanite_program/protocol/unsafe_storage/active_effect()
 	if(!iscarbon(host_mob))

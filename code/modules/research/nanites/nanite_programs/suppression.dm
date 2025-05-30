@@ -100,7 +100,7 @@
 	name = "Death Simulation"
 	desc = "The nanites induce a death-like coma into the host, able to fool most medical scans."
 	use_rate = 6
-	// This one is just unfun if you are on the recieving end of it
+	// This one is just unfun if you are on the receiving end of it
 	maximum_duration = 10 SECONDS
 	trigger_cooldown = 60 SECONDS
 	rogue_types = list(/datum/nanite_program/nerve_decay, /datum/nanite_program/necrotic, /datum/nanite_program/brain_decay)
@@ -120,6 +120,7 @@
 	var/comm_message = ""
 
 /datum/nanite_program/comm/register_extra_settings()
+	..()
 	extra_settings[NES_COMM_CODE] = new /datum/nanite_extra_setting/number(0, 0, 9999)
 
 /datum/nanite_program/comm/proc/receive_comm_signal(signal_comm_code, comm_message, comm_source)
